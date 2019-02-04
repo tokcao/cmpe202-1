@@ -15,6 +15,15 @@ public class GumballMachine
         this.has_quarter = false;
     }
 
+    /**
+     * New Constructor for to support instantiating all thee types of gumball machines.
+     * @param size
+     * Specified how many gumballs are available in the gumball machine
+     * @param cost_gumball
+     * Cost of each gumball
+     * @param accepted_coins
+     * An array of accepted coins types (i.e. nickles, dimes, etc.)
+     */
     public GumballMachine(int size, int cost_gumball, int[]accepted_coins){
         this.num_gumballs = size;
         this.cost_gumball = cost_gumball;
