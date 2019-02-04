@@ -5,7 +5,8 @@ public class GumballMachine
 
     private int num_gumballs;
     private int cost_gumball;
-    private HashSet accepted_coins;
+    private int coins_inserted;
+    private HashSet accepted_coin_types;
     private boolean has_quarter;
 
     public GumballMachine( int size )
@@ -21,13 +22,14 @@ public class GumballMachine
      * Specified how many gumballs are available in the gumball machine
      * @param cost_gumball
      * Cost of each gumball
-     * @param accepted_coins
+     * @param accepted_coin_types
      * An array of accepted coins types (i.e. nickles, dimes, etc.)
      */
-    public GumballMachine(int size, int cost_gumball, int[]accepted_coins){
+    public GumballMachine(int size, int cost_gumball, int[]accepted_coin_types){
+        this.coins_inserted = 0;
         this.num_gumballs = size;
         this.cost_gumball = cost_gumball;
-        this.accepted_coins = HashSet(accepted_coins);
+        this.accepted_coin_types = HashSet(accepted_coin_types);
     }
 
     public void insertQuarter(int coin)
@@ -36,6 +38,15 @@ public class GumballMachine
             this.has_quarter = true ;
         else 
             this.has_quarter = false ;
+    }
+
+    /**
+     * Add the inserted coin value to the coins_serted, if the coin is acceptable.
+     * @param coin
+     * The value of the inserted coin.
+     */
+    public void insertCoins(int coin){
+        coins_inserted += accepted_coin_types.contains(coin) ? coin : 0;
     }
     
     public void turnCrank()
