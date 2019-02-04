@@ -1,8 +1,11 @@
+import java.util.HashSet;
 
 public class GumballMachine
 {
 
     private int num_gumballs;
+    private int cost_gumball;
+    private HashSet accepted_coins;
     private boolean has_quarter;
 
     public GumballMachine( int size )
@@ -10,6 +13,12 @@ public class GumballMachine
         // initialise instance variables
         this.num_gumballs = size;
         this.has_quarter = false;
+    }
+
+    public GumballMachine(int size, int cost_gumball, int[]accepted_coins){
+        this.num_gumballs = size;
+        this.cost_gumball = cost_gumball;
+        this.accepted_coins = HashSet(accepted_coins);
     }
 
     public void insertQuarter(int coin)
