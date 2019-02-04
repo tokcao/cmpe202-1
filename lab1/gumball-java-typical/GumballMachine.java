@@ -8,14 +8,6 @@ public class GumballMachine
     private int cost_gumball;
     private int coins_inserted;
     private HashSet<Integer> accepted_coin_types;
-    private boolean has_quarter;
-
-    public GumballMachine( int size )
-    {
-        // initialise instance variables
-        this.num_gumballs = size;
-        this.has_quarter = false;
-    }
 
     /**
      * New Constructor for to support instantiating all three types of gumball machines.
@@ -36,14 +28,6 @@ public class GumballMachine
         }
     }
 
-    public void insertQuarter(int coin)
-    {
-        if ( coin == 25 )
-            this.has_quarter = true ;
-        else 
-            this.has_quarter = false ;
-    }
-
     /**
      * Add the inserted coin value to the coins_serted, if the coin is acceptable.
      * @param coin
@@ -54,7 +38,7 @@ public class GumballMachine
             this.coins_inserted += coin;
             System.out.println("Coin added. Total coins inserted: " + this.coins_inserted);
         } else {
-            System.out.println("The coin inserted is not acceptable.")
+            System.out.println("The coin inserted is not acceptable.");
         }
     }
     
