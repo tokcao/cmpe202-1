@@ -8,8 +8,8 @@ public class GumballMachine {
     State soldState;
  
     State state = soldOutState;
-    int count = 0;
-    int cost = 0;
+    int count;
+    int cost;
     int money_inserted = 0;
     HashSet<Integer> accepted_coin_types;
  
