@@ -82,7 +82,7 @@
 </table>
 
 ## Collabration Diagram
-![Collabration Diagram](/diagram.jpeg "Collabration Diagram")
+![Collabration Diagram](./diagram.jpeg "Collabration Diagram")
 
 ## Pattern
 ### Explaination
