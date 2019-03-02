@@ -1,4 +1,5 @@
 # CmpE 202 Lab 4
+
 ## CRC
 <table>
     <tr>
@@ -79,3 +80,13 @@
         <td>WaitingList</td>
     </tr>
 </table>
+
+## Collabration Diagram
+![Collabration Diagram](/diagram.jpeg "Collabration Diagram")
+
+## Pattern
+### Explaination
+I chose **Chain of Responsibility** as the design pattern for managing the waiting list of customers. Essentialy, the waiting list is an ordered list of customers, and customers may handle the table availability differently, depends on the size of the table and cusotmer's decision. So the table availability needs to be passed to the customers, in their registered order, one by one, until a customer confirms interest. 
+### Roles
+- **WaitingList** - Client
+- **Customer** - Handler
