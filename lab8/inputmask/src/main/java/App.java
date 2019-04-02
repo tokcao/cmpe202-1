@@ -1,5 +1,7 @@
 /* (c) Copyright 2018 Paul Nguyen. All Rights Reserved */
 
+import java.util.regex.Pattern;
+
 /**
  *  Main App Class for Displaying Screen.
  */
@@ -10,6 +12,7 @@ public class App {
     private CreditCardExp exp;
     private CreditCardCVC cvc;
     private int count;
+    private final Pattern INPUT_PATTERN = Pattern.compile("\\d|X");
 
     public App() {
 
@@ -18,8 +21,8 @@ public class App {
         exp = new CreditCardExp();
         cvc = new CreditCardCVC();
 
-        screen.addSubComponent(num);
-        screen.addSubComponent(exp);
+        screen.addSubComponent(new CardNumDecorator(num));
+        screen.addSubComponent(new CardExpDecorator(exp));
         screen.addSubComponent(cvc);
 
         count = 0;
@@ -39,8 +42,14 @@ public class App {
     }
 
     public void key(String ch) {
-        count++;
-        screen.key(ch, count);
+        if (INPUT_PATTERN.matcher(ch).matches()){
+            if (ch.equals("X")) {
+                count = Math.max(0, --count);
+            } else {
+                count = Math.min(++count, 23);
+            }
+            screen.key(ch, count);
+        }
     }
 
 }
