@@ -44,9 +44,11 @@ public class App {
     public void key(String ch) {
         if (INPUT_PATTERN.matcher(ch).matches()){
             if (ch.equals("X")) {
-                count = Math.max(0, --count);
+                if (count <= 0) return;
+                count--;
             } else {
-                count = Math.min(++count, 23);
+                if (count >= 23) return;
+                count++;
             }
             screen.key(ch, count);
         }
